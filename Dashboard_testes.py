@@ -90,7 +90,7 @@ else:
 
 ###### Importando os dados da url
 query_string = {'regiao':regiao.lower(), 'ano': ano} #Query dos filtros definidos acima
-response = requests.get(url, params=query_string, timeout=10)
+response = requests.get(url, params=query_string, timeout=15)
 dados = pd.DataFrame.from_dict(response.json())
 dados['Data da Compra'] = pd.to_datetime(dados['Data da Compra'], format=('%d/%m/%Y')) #transformando a coluna de datas para formato datetime e podermos gerar um gráfico de linhas em cima do faturamento MENSAL
 dados['Categoria do Produto'] = dados['Categoria do Produto'].str.title()
